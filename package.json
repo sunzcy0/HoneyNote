@@ -1,0 +1,20 @@
+{
+  "name": "honeynote-basic-version-",
+  "version": "1.0.0",
+  "description": "HoneyNote is a simple web application for taking text-based notes (basic Markdown-style), built with HTML, CSS, and vanilla JavaScript. It allows users to write, save, and view notes directly in the browser.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunzcy0/HoneyNote-Basic-Version-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunzcy0/HoneyNote-Basic-Version-/issues"
+  },
+  "homepage": "https://github.com/sunzcy0/HoneyNote-Basic-Version-#readme"
+}
