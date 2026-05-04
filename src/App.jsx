@@ -1,23 +1,24 @@
-import './App.css'
-import Sidebar from './components/Sidebar'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import MainLayout from "./layouts/MainLayout";
+import Dashboard from "./pages/Dashboard";
+import Notes from "./pages/Notes";
+import Settings from "./pages/Settings";
+import NoteEditor from "./pages/NoteEditor";
 
 function App() {
-
   return (
-    <div className="flex bg-white h-screen w-full">
-      <Sidebar />
-      <header>
-        <title>Honey Notes</title>
-      </header>
-      <main>
-        
-        <h1>Welcome tu your Notes!</h1>
-      </main>
-      <footer>
-        <p>© 2026 HoneyNote. All rights reserved.</p>
-      </footer>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/notes" element={<Notes />} />
+          <Route path="/notes/:id" element={<NoteEditor />} />
+          <Route path="/settings" element={<Settings />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
