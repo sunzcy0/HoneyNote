@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 export default function Sidebar() {
   return (
-    <aside className="w-[280px] bg-white border-r border-[#ddd] flex flex-col">
+    <aside className="w-[280px] h-full bg-white border-r border-[#ddd] flex flex-col">
 
       {/* Botón Nuevo */}
       <div className="p-4 border-b">
@@ -10,9 +12,9 @@ export default function Sidebar() {
       </div>
 
       <nav className="flex flex-col grow gap-6 p-4">
-        <a className="cursor-pointer hover:bg-gray-50 p-2 rounded" href="">Dashboard</a>
-        <a className="cursor-pointer hover:bg-gray-50 p-2 rounded" href="">Notes</a>
-        <a className="cursor-pointer hover:bg-gray-50 p-2 rounded" href="">Settings</a>
+        <Link to="/">Dashboard</Link>
+        <Link to="/notes">Notes</Link>
+        <Link to="/settings">Settings</Link>
       </nav>
 
       {/* Inferior */}
