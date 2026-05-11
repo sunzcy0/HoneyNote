@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar({isOpen}) {
   return (
-    <aside className="w-[280px] h-full bg-white border-r border-[#ddd] flex flex-col">
+    <aside className={`${isOpen ? "w-[280px]" : "w-0"} bg-gray-50 border-r border-[#ddd] flex flex-col transition-all duration-300 ease-in-out overflow-hidden whitespace-nowrap`}>
 
       {/* Botón Nuevo */}
       <div className="p-4 border-b">
