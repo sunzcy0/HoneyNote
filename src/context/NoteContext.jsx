@@ -1,42 +1,36 @@
+import { createContext, useContext, useState } from "react";
 
+const NoteContext = createContext();
 
-/* Note Object */
-const Note = {
-  id: String,
-  title: String,
-  description: String,
-  content: String,
-  createdAt: Date,
-  updatedAt: Date,
-  favorite: Boolean,
-} 
+export const useNotes = () => useContext(NoteContext);
 
-export const notesArray = [
-  {
-    id: '1',
-    title: 'Note 1',
-    description: 'Description 1',
-    content: 'Content 1',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    favorite: false,
-  },
-  {
-    id: '2',
-    title: 'Note 2',
-    description: 'Description 2',
-    content: 'Content 2',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    favorite: false,
-  },
-  {
-    id: '3',
-    title: 'Note 3',
-    description: 'Description 3',
-    content: 'Content 3',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    favorite: false,
-  },
-]
+export const NoteProvider = ({children}) => { 
+  const [notes, setNotes] = useState([
+    {
+      id: 1, 
+      title: "First note",
+      description: "First note description",
+      content: "This is the content of the first note.",
+      createdAt: new Date().toISOString(),
+      favorite: false
+    }
+  ]);
+
+  const addNote = (newNote) => {
+    const noteWithMetaData = {
+      ...newNote, 
+      id: Date.now(),
+      createdAt: new Date().toISOString(),
+      favorite: false
+    }
+
+    setNotes([...notes, noteWithMetaData]);
+  };
+
+  return (
+    <NoteContext.Provider value={{notes, addNote}}>
+      {children}
+    </NoteContext.Provider>
+  );
+};
+

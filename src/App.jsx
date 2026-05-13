@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout";
 import Dashboard from "./pages/Dashboard";
 import Notes from "./pages/Notes";
 import Settings from "./pages/Settings";
+
 import NoteEditor from "./pages/NoteEditor";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/notes" element={<Notes />} />
+          <Route path="/notes/new" element={<NoteEditor />} />
           <Route path="/notes/:id" element={<NoteEditor />} />
           <Route path="/settings" element={<Settings />} />
         </Route>

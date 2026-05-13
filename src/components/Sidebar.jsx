@@ -6,9 +6,9 @@ export default function Sidebar({isOpen}) {
 
       {/* Botón Nuevo */}
       <div className="p-4 border-b">
-        <button className="w-full bg-[#007aff] text-white py-2 rounded">
+        <Link to="/notes/new" className="block w-full text-center bg-[#007aff] text-white py-2 rounded">
           + Nueva Nota
-        </button>
+        </Link>
       </div>
 
       <nav className="flex flex-col grow gap-6 p-4">
@@ -18,8 +18,8 @@ export default function Sidebar({isOpen}) {
       </nav>
 
       {/* Inferior */}
-      <div className="p-4 border-t">
-        <span>Gaby Valencia</span>
+      <div className="p-4">
+        <div className="text-center">Gaby Valencia</div>
       </div>
     </aside>
   );
