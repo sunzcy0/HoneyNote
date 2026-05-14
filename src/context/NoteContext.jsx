@@ -1,20 +1,25 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const NoteContext = createContext();
 
 export const useNotes = () => useContext(NoteContext);
 
 export const NoteProvider = ({children}) => { 
-  const [notes, setNotes] = useState([
-    {
-      id: 1, 
-      title: "First note",
-      description: "First note description",
-      content: "This is the content of the first note.",
-      createdAt: new Date().toISOString(),
-      favorite: false
+  const [notes, setNotes] = useState(() => {
+
+  const notesStorage = localStorage.getItem("notes");
+  
+    if (notesStorage) {
+      return JSON.parse(notesStorage);
     }
-  ]);
+    return [];
+  });
+
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
+
 
   const addNote = (newNote) => {
     const noteWithMetaData = {
@@ -33,4 +38,3 @@ export const NoteProvider = ({children}) => {
     </NoteContext.Provider>
   );
 };
-
